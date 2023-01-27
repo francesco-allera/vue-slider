@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./style.css">
+    <!-- Vue JS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+    <title>Vue Slider</title>
+</head>
+<body>
+
+    <!-- App Vue Container -->
+    <div id="app" class="container">
+        <div class="slider-wrapper">
+
+            <!-- Left Arrow -->
+            <div class="prev" @click="prev">
+                <i class="fas fa-angle-left"></i>
+            </div>
+
+            <!-- Images -->
+            <div class="images">
+                <img :src="images[idx].url" :alt="images[idx].alt">
+            </div>
+
+            <!-- Right Arrow -->
+            <div class="next"  @click="next">
+                <i class="fas fa-angle-right"></i>
+            </div>
+
+            <!-- Dynamic Dots -->
+            <div class="nav">
+                <i v-for="(el, i) in images" class="fas fa-circle" :class="{active: i === idx}" @click="getIdx(i)"></i>
+            </div>
+
+        </div>
+    </div>
+    <!-- / App Vue Container -->
+
+    <!-- JS -->
+    <script src="./main.js"></script>
+</body>
+</html>
